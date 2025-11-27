@@ -1,0 +1,1239 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>新疆正宗美食 | 龙跃天山 - 来自天山脚下的美味</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700;900&family=ZCOOL+KuaiLe&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #FF6B35;
+            --secondary: #F7C59F;
+            --accent: #2EC4B6;
+            --dark: #1A1A2E;
+            --cream: #FFFAF5;
+            --gold: #FFD700;
+            --red: #E63946;
+            --purple: #6B5B95;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Noto Sans SC', sans-serif;
+            background: var(--cream);
+            color: var(--dark);
+            overflow-x: hidden;
+        }
+
+        /* 顶部公告栏 */
+        .announcement {
+            background: linear-gradient(90deg, var(--primary), var(--red), var(--primary));
+            background-size: 200% 100%;
+            animation: gradientMove 3s ease infinite;
+            color: white;
+            text-align: center;
+            padding: 0.8rem;
+            font-size: 0.95rem;
+            font-weight: 500;
+        }
+
+        @keyframes gradientMove {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+        }
+
+        .announcement span {
+            animation: pulse 2s ease infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.7; }
+        }
+
+        /* 导航 */
+        nav {
+            background: white;
+            padding: 1rem 5%;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 20px rgba(0,0,0,0.08);
+        }
+
+        .nav-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: 'ZCOOL KuaiLe', cursive;
+            font-size: 2rem;
+            color: var(--primary);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--dark);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+
+        .cart-btn {
+            background: var(--primary);
+            color: white;
+            padding: 0.8rem 1.5rem;
+            border: none;
+            border-radius: 50px;
+            font-weight: 600;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: all 0.3s;
+        }
+
+        .cart-btn:hover {
+            background: var(--red);
+            transform: scale(1.05);
+        }
+
+        /* 英雄区域 */
+        .hero {
+            min-height: 90vh;
+            background: 
+                linear-gradient(135deg, rgba(255, 107, 53, 0.1) 0%, rgba(247, 197, 159, 0.2) 100%);
+            display: flex;
+            align-items: center;
+            padding: 4rem 5%;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -100px;
+            right: -100px;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(255, 215, 0, 0.3) 0%, transparent 70%);
+            animation: floatBubble 6s ease-in-out infinite;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            bottom: -150px;
+            left: -150px;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(46, 196, 182, 0.2) 0%, transparent 70%);
+            animation: floatBubble 8s ease-in-out infinite reverse;
+        }
+
+        @keyframes floatBubble {
+            0%, 100% { transform: translate(0, 0) scale(1); }
+            50% { transform: translate(30px, -30px) scale(1.1); }
+        }
+
+        .hero-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-content h1 {
+            font-family: 'ZCOOL KuaiLe', cursive;
+            font-size: 4rem;
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+            color: var(--dark);
+        }
+
+        .hero-content h1 .highlight {
+            color: var(--primary);
+            position: relative;
+        }
+
+        .hero-content h1 .highlight::after {
+            content: '';
+            position: absolute;
+            bottom: 5px;
+            left: 0;
+            width: 100%;
+            height: 15px;
+            background: var(--secondary);
+            z-index: -1;
+            transform: skewX(-5deg);
+        }
+
+        .hero-content p {
+            font-size: 1.3rem;
+            color: #666;
+            margin-bottom: 2rem;
+            line-height: 1.8;
+        }
+
+        .hero-badges {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .badge {
+            background: white;
+            padding: 0.5rem 1rem;
+            border-radius: 50px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .badge.hot {
+            background: var(--red);
+            color: white;
+        }
+
+        .badge.new {
+            background: var(--accent);
+            color: white;
+        }
+
+        .hero-cta {
+            display: flex;
+            gap: 1rem;
+            align-items: center;
+        }
+
+        .btn-large {
+            padding: 1.2rem 3rem;
+            font-size: 1.2rem;
+            border-radius: 50px;
+            font-weight: 700;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: all 0.3s;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--red) 100%);
+            color: white;
+            box-shadow: 0 10px 30px rgba(255, 107, 53, 0.4);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(255, 107, 53, 0.5);
+        }
+
+        .btn-secondary {
+            background: white;
+            color: var(--dark);
+            border: 2px solid var(--dark);
+        }
+
+        .btn-secondary:hover {
+            background: var(--dark);
+            color: white;
+        }
+
+        .hero-image {
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .hero-product-main {
+            width: 450px;
+            height: 450px;
+            background: linear-gradient(135deg, var(--secondary) 0%, var(--primary) 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 15rem;
+            box-shadow: 
+                0 30px 60px rgba(255, 107, 53, 0.3),
+                inset 0 -20px 40px rgba(0,0,0,0.1);
+            animation: float 4s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
+        }
+
+        .floating-items {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+        }
+
+        .floating-item {
+            position: absolute;
+            font-size: 4rem;
+            animation: floatItem 5s ease-in-out infinite;
+        }
+
+        .floating-item:nth-child(1) { top: 10%; left: 0; animation-delay: 0s; }
+        .floating-item:nth-child(2) { top: 60%; left: -10%; animation-delay: 1s; }
+        .floating-item:nth-child(3) { top: 20%; right: -5%; animation-delay: 2s; }
+        .floating-item:nth-child(4) { bottom: 10%; right: 10%; animation-delay: 0.5s; }
+
+        @keyframes floatItem {
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            50% { transform: translateY(-15px) rotate(10deg); }
+        }
+
+        .price-tag {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: var(--red);
+            color: white;
+            padding: 1rem 1.5rem;
+            border-radius: 10px;
+            font-weight: 700;
+            font-size: 1.5rem;
+            transform: rotate(10deg);
+            box-shadow: 0 10px 30px rgba(230, 57, 70, 0.4);
+        }
+
+        .price-tag small {
+            display: block;
+            font-size: 0.8rem;
+            font-weight: 400;
+            text-decoration: line-through;
+            opacity: 0.8;
+        }
+
+        /* 热销产品 */
+        .hot-products {
+            padding: 6rem 5%;
+            background: white;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .section-tag {
+            display: inline-block;
+            background: var(--secondary);
+            color: var(--primary);
+            padding: 0.5rem 1.5rem;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+        }
+
+        .section-title {
+            font-family: 'ZCOOL KuaiLe', cursive;
+            font-size: 3rem;
+            color: var(--dark);
+        }
+
+        .products-grid {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+        }
+
+        .product-card {
+            background: var(--cream);
+            border-radius: 20px;
+            overflow: hidden;
+            transition: all 0.4s ease;
+            position: relative;
+        }
+
+        .product-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 50px rgba(0,0,0,0.15);
+        }
+
+        .product-card:hover .product-img {
+            transform: scale(1.1);
+        }
+
+        .product-img-wrapper {
+            height: 250px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .product-img {
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, var(--secondary) 0%, #FFE5D0 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 7rem;
+            transition: transform 0.4s ease;
+        }
+
+        .product-label {
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            background: var(--red);
+            color: white;
+            padding: 0.4rem 1rem;
+            border-radius: 50px;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+
+        .product-label.new {
+            background: var(--accent);
+        }
+
+        .product-label.sale {
+            background: var(--gold);
+            color: var(--dark);
+        }
+
+        .quick-add {
+            position: absolute;
+            bottom: 15px;
+            right: 15px;
+            width: 50px;
+            height: 50px;
+            background: var(--primary);
+            color: white;
+            border: none;
+            border-radius: 50%;
+            font-size: 1.5rem;
+            cursor: pointer;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.3s ease;
+        }
+
+        .product-card:hover .quick-add {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .quick-add:hover {
+            background: var(--red);
+            transform: scale(1.1);
+        }
+
+        .product-details {
+            padding: 1.5rem;
+        }
+
+        .product-name {
+            font-size: 1.3rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            color: var(--dark);
+        }
+
+        .product-desc {
+            font-size: 0.9rem;
+            color: #888;
+            margin-bottom: 1rem;
+            line-height: 1.5;
+        }
+
+        .product-meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .product-price {
+            font-size: 1.8rem;
+            font-weight: 900;
+            color: var(--primary);
+        }
+
+        .product-price .original {
+            font-size: 1rem;
+            color: #ccc;
+            text-decoration: line-through;
+            font-weight: 400;
+            margin-left: 0.5rem;
+        }
+
+        .product-rating {
+            display: flex;
+            align-items: center;
+            gap: 0.3rem;
+            color: var(--gold);
+        }
+
+        .product-rating span {
+            color: #888;
+            font-size: 0.9rem;
+        }
+
+        /* 特色卖点 */
+        .features {
+            padding: 6rem 5%;
+            background: linear-gradient(135deg, var(--dark) 0%, #2D2D44 100%);
+            color: white;
+        }
+
+        .features .section-title {
+            color: white;
+        }
+
+        .features-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 2rem;
+        }
+
+        .feature-card {
+            text-align: center;
+            padding: 2.5rem 1.5rem;
+            background: rgba(255,255,255,0.05);
+            border-radius: 20px;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .feature-card:hover {
+            background: rgba(255,255,255,0.1);
+            transform: translateY(-5px);
+        }
+
+        .feature-icon {
+            font-size: 4rem;
+            margin-bottom: 1.5rem;
+            display: block;
+        }
+
+        .feature-title {
+            font-size: 1.3rem;
+            font-weight: 700;
+            margin-bottom: 0.8rem;
+            color: var(--secondary);
+        }
+
+        .feature-text {
+            font-size: 0.95rem;
+            opacity: 0.8;
+            line-height: 1.6;
+        }
+
+        /* 限时特惠 */
+        .flash-sale {
+            padding: 6rem 5%;
+            background: linear-gradient(135deg, var(--red) 0%, var(--primary) 100%);
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .flash-sale::before {
+            content: '🔥';
+            position: absolute;
+            font-size: 20rem;
+            opacity: 0.1;
+            top: -50px;
+            right: -50px;
+        }
+
+        .flash-sale-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1.5fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .flash-sale-content h2 {
+            font-family: 'ZCOOL KuaiLe', cursive;
+            font-size: 3.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .flash-sale-content p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            margin-bottom: 2rem;
+            line-height: 1.8;
+        }
+
+        .countdown {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .countdown-item {
+            background: rgba(255,255,255,0.2);
+            padding: 1rem 1.5rem;
+            border-radius: 10px;
+            text-align: center;
+            min-width: 80px;
+        }
+
+        .countdown-number {
+            font-size: 2.5rem;
+            font-weight: 900;
+            display: block;
+        }
+
+        .countdown-label {
+            font-size: 0.8rem;
+            opacity: 0.8;
+        }
+
+        .flash-sale-products {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.5rem;
+        }
+
+        .flash-product {
+            background: white;
+            border-radius: 15px;
+            padding: 1.5rem;
+            display: flex;
+            gap: 1rem;
+            align-items: center;
+            color: var(--dark);
+        }
+
+        .flash-product-img {
+            width: 80px;
+            height: 80px;
+            background: var(--secondary);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+        }
+
+        .flash-product-info h4 {
+            font-size: 1.1rem;
+            margin-bottom: 0.3rem;
+        }
+
+        .flash-product-info .price {
+            font-size: 1.3rem;
+            font-weight: 900;
+            color: var(--red);
+        }
+
+        .flash-product-info .price del {
+            color: #ccc;
+            font-size: 0.9rem;
+            font-weight: 400;
+        }
+
+        /* 客户评价 */
+        .reviews {
+            padding: 6rem 5%;
+            background: var(--cream);
+        }
+
+        .reviews-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+        }
+
+        .review-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 20px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.05);
+        }
+
+        .review-stars {
+            color: var(--gold);
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+        }
+
+        .review-text {
+            font-size: 1rem;
+            line-height: 1.8;
+            color: #666;
+            margin-bottom: 1.5rem;
+        }
+
+        .review-author {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .review-avatar {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+        }
+
+        .review-author-info h5 {
+            font-size: 1rem;
+            color: var(--dark);
+        }
+
+        .review-author-info span {
+            font-size: 0.85rem;
+            color: #999;
+        }
+
+        /* 页脚CTA */
+        .cta-section {
+            padding: 6rem 5%;
+            background: var(--dark);
+            text-align: center;
+            color: white;
+        }
+
+        .cta-section h2 {
+            font-family: 'ZCOOL KuaiLe', cursive;
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .cta-section p {
+            font-size: 1.2rem;
+            opacity: 0.8;
+            margin-bottom: 2rem;
+        }
+
+        /* 页脚 */
+        footer {
+            background: #111;
+            color: white;
+            padding: 4rem 5% 2rem;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 3rem;
+            padding-bottom: 3rem;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .footer-brand h3 {
+            font-family: 'ZCOOL KuaiLe', cursive;
+            font-size: 2rem;
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+
+        .footer-brand p {
+            opacity: 0.7;
+            line-height: 1.8;
+        }
+
+        .footer-links h4 {
+            margin-bottom: 1.5rem;
+            font-size: 1.1rem;
+        }
+
+        .footer-links ul {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 0.8rem;
+        }
+
+        .footer-links a {
+            color: white;
+            opacity: 0.7;
+            text-decoration: none;
+            transition: opacity 0.3s;
+        }
+
+        .footer-links a:hover {
+            opacity: 1;
+            color: var(--primary);
+        }
+
+        .footer-bottom {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding-top: 2rem;
+            text-align: center;
+            opacity: 0.5;
+            font-size: 0.9rem;
+        }
+
+        /* 响应式 */
+        @media (max-width: 1024px) {
+            .hero-container,
+            .flash-sale-container {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .hero-image {
+                order: -1;
+            }
+
+            .hero-product-main {
+                width: 300px;
+                height: 300px;
+                font-size: 10rem;
+            }
+
+            .features-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .reviews-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .flash-sale-products {
+                grid-template-columns: 1fr;
+            }
+
+            .countdown {
+                justify-content: center;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+            }
+
+            .hero-cta {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="announcement">
+        <span>🎉 新客立减10元 | 全场满99包邮 | 工厂直发 新鲜直达 🚀</span>
+    </div>
+
+    <nav>
+        <div class="nav-container">
+            <div class="logo">🏔️ 龙跃天山</div>
+            <ul class="nav-links">
+                <li><a href="#">首页</a></li>
+                <li><a href="#">热销产品</a></li>
+                <li><a href="#">全部商品</a></li>
+                <li><a href="#">限时特惠</a></li>
+                <li><a href="#">关于我们</a></li>
+            </ul>
+            <button class="cart-btn">🛒 购物车 <span>(0)</span></button>
+        </div>
+    </nav>
+
+    <section class="hero">
+        <div class="hero-container">
+            <div class="hero-content">
+                <div class="hero-badges">
+                    <span class="badge hot">🔥 爆款热销</span>
+                    <span class="badge new">✨ 新品上市</span>
+                    <span class="badge">📦 工厂直发</span>
+                </div>
+                <h1>
+                    来自<span class="highlight">天山脚下</span>的<br>
+                    正宗新疆美味
+                </h1>
+                <p>新疆乌鲁木齐龙跃天山食品厂，专注新疆特色美食。塔城奶酪包、手工牛乳馕、坚果果仁馕...每一口都是纯正的新疆风味！</p>
+                <div class="hero-cta">
+                    <button class="btn-large btn-primary">立即抢购 →</button>
+                    <button class="btn-large btn-secondary">查看全部商品</button>
+                </div>
+            </div>
+            <div class="hero-image">
+                <div class="hero-product-main">🧀</div>
+                <div class="floating-items">
+                    <span class="floating-item">🥯</span>
+                    <span class="floating-item">🌹</span>
+                    <span class="floating-item">🥜</span>
+                    <span class="floating-item">🍞</span>
+                </div>
+                <div class="price-tag">
+                    <small>原价 ¥58</small>
+                    ¥38
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="hot-products">
+        <div class="section-header">
+            <span class="section-tag">🔥 人气爆款</span>
+            <h2 class="section-title">热销产品</h2>
+        </div>
+        <div class="products-grid">
+            <div class="product-card">
+                <div class="product-img-wrapper">
+                    <div class="product-img">🧀</div>
+                    <span class="product-label">TOP1</span>
+                    <button class="quick-add">+</button>
+                </div>
+                <div class="product-details">
+                    <h3 class="product-name">塔城坚果奶酪包</h3>
+                    <p class="product-desc">动物奶油双层夹心 420g/盒 航空包邮</p>
+                    <div class="product-meta">
+                        <span class="product-price">¥38 <span class="original">¥58</span></span>
+                        <div class="product-rating">
+                            ⭐⭐⭐⭐⭐ <span>(2.3k)</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <div class="product-img-wrapper">
+                    <div class="product-img">🥯</div>
+                    <span class="product-label new">新品</span>
+                    <button class="quick-add">+</button>
+                </div>
+                <div class="product-details">
+                    <h3 class="product-name">坚果烤包子果仁馕</h3>
+                    <p class="product-desc">手把馕独立包装 送礼伴手礼首选</p>
+                    <div class="product-meta">
+                        <span class="product-price">¥56.9</span>
+                        <div class="product-rating">
+                            ⭐⭐⭐⭐⭐ <span>(1.8k)</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <div class="product-img-wrapper">
+                    <div class="product-img">🌹</div>
+                    <span class="product-label sale">特惠</span>
+                    <button class="quick-add">+</button>
+                </div>
+                <div class="product-details">
+                    <h3 class="product-name">玫瑰花夹心牛乳馕</h3>
+                    <p class="product-desc">900g/箱独立装 玫瑰花馅 营养酥香</p>
+                    <div class="product-meta">
+                        <span class="product-price">¥32 <span class="original">¥45</span></span>
+                        <div class="product-rating">
+                            ⭐⭐⭐⭐⭐ <span>(956)</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <div class="product-img-wrapper">
+                    <div class="product-img">🍞</div>
+                    <button class="quick-add">+</button>
+                </div>
+                <div class="product-details">
+                    <h3 class="product-name">俄罗斯大列巴</h3>
+                    <p class="product-desc">500g/盒 早餐购坚果面包 新疆特产</p>
+                    <div class="product-meta">
+                        <span class="product-price">¥22</span>
+                        <div class="product-rating">
+                            ⭐⭐⭐⭐⭐ <span>(1.2k)</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <div class="product-img-wrapper">
+                    <div class="product-img">🥛</div>
+                    <button class="quick-add">+</button>
+                </div>
+                <div class="product-details">
+                    <h3 class="product-name">奶皮子牛乳馕</h3>
+                    <p class="product-desc">锡伯族风味馕 460g/盒 工厂直销</p>
+                    <div class="product-meta">
+                        <span class="product-price">¥24</span>
+                        <div class="product-rating">
+                            ⭐⭐⭐⭐⭐ <span>(876)</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <div class="product-img-wrapper">
+                    <div class="product-img">🫘</div>
+                    <span class="product-label new">健康</span>
+                    <button class="quick-add">+</button>
+                </div>
+                <div class="product-details">
+                    <h3 class="product-name">无蔗糖黑豆馕</h3>
+                    <p class="product-desc">500g/盒 传统手工制作 健康美味</p>
+                    <div class="product-meta">
+                        <span class="product-price">¥22</span>
+                        <div class="product-rating">
+                            ⭐⭐⭐⭐⭐ <span>(654)</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="features">
+        <div class="section-header">
+            <span class="section-tag">✨ 品质保证</span>
+            <h2 class="section-title">为什么选择我们</h2>
+        </div>
+        <div class="features-grid">
+            <div class="feature-card">
+                <span class="feature-icon">🏭</span>
+                <h3 class="feature-title">工厂直发</h3>
+                <p class="feature-text">自有生产工厂，没有中间商赚差价，品质有保障</p>
+            </div>
+            <div class="feature-card">
+                <span class="feature-icon">🥛</span>
+                <h3 class="feature-title">动物奶油</h3>
+                <p class="feature-text">坚持使用动物奶油，拒绝植脂末，健康又美味</p>
+            </div>
+            <div class="feature-card">
+                <span class="feature-icon">👨‍🍳</span>
+                <h3 class="feature-title">纯手工制作</h3>
+                <p class="feature-text">传承传统技艺，每一件产品都是匠人用心之作</p>
+            </div>
+            <div class="feature-card">
+                <span class="feature-icon">✈️</span>
+                <h3 class="feature-title">航空直达</h3>
+                <p class="feature-text">新疆航空发货，保鲜直达全国，第一时间尝鲜</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="flash-sale">
+        <div class="flash-sale-container">
+            <div class="flash-sale-content">
+                <h2>🔥 限时特惠<br>手慢无！</h2>
+                <p>新疆正宗塔城奶酪包，动物奶油双层夹心，工厂直发，新鲜直达！限时特惠，买2送1！</p>
+                <div class="countdown">
+                    <div class="countdown-item">
+                        <span class="countdown-number" id="hours">23</span>
+                        <span class="countdown-label">小时</span>
+                    </div>
+                    <div class="countdown-item">
+                        <span class="countdown-number" id="minutes">59</span>
+                        <span class="countdown-label">分钟</span>
+                    </div>
+                    <div class="countdown-item">
+                        <span class="countdown-number" id="seconds">59</span>
+                        <span class="countdown-label">秒</span>
+                    </div>
+                </div>
+                <button class="btn-large" style="background: white; color: var(--red);">立即抢购 →</button>
+            </div>
+            <div class="flash-sale-products">
+                <div class="flash-product">
+                    <div class="flash-product-img">🧀</div>
+                    <div class="flash-product-info">
+                        <h4>塔城奶酪包 420g</h4>
+                        <p class="price">¥38 <del>¥58</del></p>
+                    </div>
+                </div>
+                <div class="flash-product">
+                    <div class="flash-product-img">🧀</div>
+                    <div class="flash-product-info">
+                        <h4>迷你奶酪包 3盒装</h4>
+                        <p class="price">¥38 <del>¥55</del></p>
+                    </div>
+                </div>
+                <div class="flash-product">
+                    <div class="flash-product-img">🌹</div>
+                    <div class="flash-product-info">
+                        <h4>玫瑰花牛乳馕</h4>
+                        <p class="price">¥32 <del>¥45</del></p>
+                    </div>
+                </div>
+                <div class="flash-product">
+                    <div class="flash-product-img">🥯</div>
+                    <div class="flash-product-info">
+                        <h4>坚果果仁馕礼盒</h4>
+                        <p class="price">¥56.9 <del>¥79</del></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="reviews">
+        <div class="section-header">
+            <span class="section-tag">💬 真实评价</span>
+            <h2 class="section-title">客户怎么说</h2>
+        </div>
+        <div class="reviews-grid">
+            <div class="review-card">
+                <div class="review-stars">⭐⭐⭐⭐⭐</div>
+                <p class="review-text">"第一次吃新疆的奶酪包，真的太惊艳了！奶香浓郁，坚果酥脆，一盒根本不够吃！已经回购三次了！"</p>
+                <div class="review-author">
+                    <div class="review-avatar">👩</div>
+                    <div class="review-author-info">
+                        <h5>小美</h5>
+                        <span>来自上海 · 购买了塔城奶酪包</span>
+                    </div>
+                </div>
+            </div>
+            <div class="review-card">
+                <div class="review-stars">⭐⭐⭐⭐⭐</div>
+                <p class="review-text">"送给爸妈尝尝新疆特产，他们特别喜欢那个玫瑰花馕，说比外面买的好吃多了，满满都是玫瑰花香！"</p>
+                <div class="review-author">
+                    <div class="review-avatar">👨</div>
+                    <div class="review-author-info">
+                        <h5>大伟</h5>
+                        <span>来自北京 · 购买了玫瑰花牛乳馕</span>
+                    </div>
+                </div>
+            </div>
+            <div class="review-card">
+                <div class="review-stars">⭐⭐⭐⭐⭐</div>
+                <p class="review-text">"包装很精致，很适合送礼！朋友收到后特别惊喜，说在新疆旅游时吃过，没想到在家也能吃到正宗的！"</p>
+                <div class="review-author">
+                    <div class="review-avatar">👩</div>
+                    <div class="review-author-info">
+                        <h5>晓晓</h5>
+                        <span>来自广州 · 购买了坚果果仁馕礼盒</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="cta-section">
+        <h2>🏔️ 天山美味 一键到家</h2>
+        <p>加入我们的会员，享受更多专属优惠！</p>
+        <button class="btn-large btn-primary">立即加入会员 →</button>
+    </section>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-brand">
+                <h3>🏔️ 龙跃天山</h3>
+                <p>新疆乌鲁木齐龙跃天山食品厂<br>专注新疆特色美食，工厂直发全国</p>
+            </div>
+            <div class="footer-links">
+                <h4>产品分类</h4>
+                <ul>
+                    <li><a href="#">奶酪包系列</a></li>
+                    <li><a href="#">馕饼系列</a></li>
+                    <li><a href="#">面包系列</a></li>
+                    <li><a href="#">礼盒装</a></li>
+                </ul>
+            </div>
+            <div class="footer-links">
+                <h4>购物帮助</h4>
+                <ul>
+                    <li><a href="#">配送说明</a></li>
+                    <li><a href="#">退换货政策</a></li>
+                    <li><a href="#">常见问题</a></li>
+                    <li><a href="#">联系客服</a></li>
+                </ul>
+            </div>
+            <div class="footer-links">
+                <h4>联系我们</h4>
+                <ul>
+                    <li><a href="#">📍 新疆乌鲁木齐水磨沟区</a></li>
+                    <li><a href="#">📧 contact@longyuetianshan.com</a></li>
+                    <li><a href="#">🕐 周一至周六 9:00-18:00</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2025 乌鲁木齐龙跃天山食品厂 版权所有</p>
+        </div>
+    </footer>
+
+    <script>
+        // 倒计时功能
+        function updateCountdown() {
+            const now = new Date();
+            const endOfDay = new Date();
+            endOfDay.setHours(23, 59, 59, 999);
+            
+            const diff = endOfDay - now;
+            
+            const hours = Math.floor(diff / (1000 * 60 * 60));
+            const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+            
+            document.getElementById('hours').textContent = hours.toString().padStart(2, '0');
+            document.getElementById('minutes').textContent = minutes.toString().padStart(2, '0');
+            document.getElementById('seconds').textContent = seconds.toString().padStart(2, '0');
+        }
+        
+        setInterval(updateCountdown, 1000);
+        updateCountdown();
+    </script>
+</body>
+</html>
